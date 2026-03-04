@@ -1,6 +1,6 @@
 # predict-hfqso-endtimes
 
-A small tool for tracking the progression of the [hfqso.com](https://hfqso.com) activity group across HF bands, with prediction of when each band session will wrap up.
+A small tool for tracking the progress of the [hfqso.com](https://hfqso.com) activity group across HF bands, with prediction of when each band session will wrap up.
 
 **Live app:** https://predict-hfqso-endtimes.netlify.app/
 
