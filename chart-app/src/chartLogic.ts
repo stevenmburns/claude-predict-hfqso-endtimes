@@ -9,17 +9,9 @@ export interface ChartPoint {
   [key: string]: number | null;
 }
 
-export interface BandLabel {
-  band: string;
-  time: number;
-  value: number;
-  text: string; // "completed/total"
-}
-
 export interface ChartResult {
   data: ChartPoint[];
   predBands: string[];
-  bandLabels: BandLabel[];
 }
 
 export const BANDS = ["17m", "15m", "12m", "10m"];
@@ -50,7 +42,6 @@ export function buildChartData(records: DataRecord[]): ChartResult {
     : 60_000;
 
   const predBands: string[] = [];
-  const bandLabels: BandLabel[] = [];
   let chainTime: number | null = null;
   let chainCount: number | null = null;
 
@@ -81,7 +72,6 @@ export function buildChartData(records: DataRecord[]): ChartResult {
 
       chainTime = lastTime + meanInterval * pendingCount;
       chainCount = lastCount + pendingCount;
-      bandLabels.push({ band, time: chainTime, value: chainCount, text: `${completedCounts[band]}/${totalCounts[band]}` });
     } else {
       const startTime: number = chainTime!;
       const startCount: number = chainCount!;
@@ -93,24 +83,11 @@ export function buildChartData(records: DataRecord[]): ChartResult {
 
       chainTime = startTime + globalMeanInterval * pendingCount;
       chainCount = startCount + pendingCount;
-      bandLabels.push({ band, time: chainTime, value: chainCount, text: `${completedCounts[band]}/${totalCounts[band]}` });
-    }
-  }
-
-  // Labels for fully-completed bands (no prediction line)
-  for (const band of BANDS) {
-    if (totalCounts[band] > 0 && completedCounts[band] === totalCounts[band]) {
-      const bandTimes = completed
-        .filter((r) => r.Band === band)
-        .map((r) => new Date(r.Completed_Timestamp!).getTime());
-      const lastTime = bandTimes[bandTimes.length - 1];
-      const lastValue = offsets[band] + completedCounts[band];
-      bandLabels.push({ band, time: lastTime, value: lastValue, text: `${completedCounts[band]}/${totalCounts[band]}` });
     }
   }
 
   data.sort((a, b) => a.time - b.time);
-  return { data, predBands, bandLabels };
+  return { data, predBands };
 }
 
 export const THIRTY_MIN_MS = 30 * 60 * 1000;
@@ -125,5 +102,5 @@ export function build30MinTicks(data: ChartPoint[]): number[] {
 }
 
 export function formatTime(ms: number): string {
-  return new Date(ms).toISOString().slice(11, 16);
+  return new Date(ms).toISOString().slice(11, 19) + " UTC";
 }
