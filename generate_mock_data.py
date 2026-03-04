@@ -15,15 +15,14 @@ records = []
 current_time = datetime(2026, 3, 4, 17, 30, 0, tzinfo=timezone.utc)
 
 for band, count in bands:
-    for _ in range(count):
+    for i in range(count):
         interval_minutes = rng.normal(loc=1.0, scale=0.1)
         current_time += timedelta(minutes=interval_minutes)
-        records.append(
-            {
-                "Band": band,
-                "Completed": current_time.isoformat(),
-            }
-        )
+        pending = band == "10m" or (band == "12m" and i >= count - 25)
+        record: dict = {"Band": band, "Completed": not pending}
+        if not pending:
+            record["Completed_Timestamp"] = current_time.isoformat()
+        records.append(record)
 
 with open("mock_data.json", "w") as f:
     json.dump(records, f, indent=2)
