@@ -14,9 +14,9 @@ function makeRecords(band: string, count: number, startMs: number, intervalMs: n
 // ── formatTime ────────────────────────────────────────────────────────────────
 
 describe("formatTime", () => {
-  it("formats a UTC timestamp as HH:MM:SS UTC", () => {
+  it("formats a UTC timestamp as HH:MM", () => {
     const ms = new Date("2026-03-04T17:30:00.000Z").getTime();
-    expect(formatTime(ms)).toBe("17:30:00 UTC");
+    expect(formatTime(ms)).toBe("17:30");
   });
 });
 

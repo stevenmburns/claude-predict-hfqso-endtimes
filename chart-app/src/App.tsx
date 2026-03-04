@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import {
   Area,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -10,9 +9,10 @@ import {
   Legend,
   ResponsiveContainer,
   ComposedChart,
+  ReferenceDot,
 } from "recharts";
 import { BANDS, buildChartData, build30MinTicks, formatTime } from "./chartLogic";
-import type { ChartResult, DataRecord } from "./chartLogic";
+import type { ChartResult, DataRecord, BandLabel } from "./chartLogic";
 
 const COLORS: Record<string, string> = {
   "17m": "#4e79a7",
@@ -45,8 +45,16 @@ function CustomLegend({ predBands }: { predBands: string[] }) {
   );
 }
 
+function BandLabelDot({ cx, cy, color, text }: { cx: number; cy: number; color: string; text: string }) {
+  return (
+    <text x={cx - 6} y={cy - 8} textAnchor="end" fontSize={11} fontFamily="sans-serif" fill={color}>
+      {text}
+    </text>
+  );
+}
+
 export default function App() {
-  const [chartResult, setChartResult] = useState<ChartResult>({ data: [], predBands: [] });
+  const [chartResult, setChartResult] = useState<ChartResult>({ data: [], predBands: [], bandLabels: [] });
 
   useEffect(() => {
     fetch("/mock_data.json")
@@ -54,7 +62,7 @@ export default function App() {
       .then((records: DataRecord[]) => setChartResult(buildChartData(records)));
   }, []);
 
-  const { data, predBands } = chartResult;
+  const { data, predBands, bandLabels } = chartResult;
   const ticks = build30MinTicks(data);
 
   return (
@@ -101,6 +109,15 @@ export default function App() {
               strokeDasharray="6 4"
               dot={false}
               isAnimationActive={false}
+            />
+          ))}
+          {bandLabels.map((lbl: BandLabel) => (
+            <ReferenceDot
+              key={`label-${lbl.band}`}
+              x={lbl.time}
+              y={lbl.value}
+              r={0}
+              label={<BandLabelDot cx={0} cy={0} color={COLORS[lbl.band]} text={lbl.text} />}
             />
           ))}
         </ComposedChart>
