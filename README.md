@@ -1,12 +1,12 @@
 # predict-hfqso-endtimes
 
-A small tool for visualising and predicting the completion of HF band sessions during a contest or activation.
+A small tool for tracking the progression of the [hfqso.com](https://hfqso.com) activity group across HF bands, with prediction of when each band session will wrap up.
 
 **Live app:** https://predict-hfqso-endtimes.netlify.app/
 
 ## What it does
 
-Given a log of completed QSOs with timestamps, the app plots cumulative contact counts across four bands (17m, 15m, 12m, 10m) as step curves over time. For any band session still in progress, it projects a dashed trend line forward using the mean inter-arrival rate of completed contacts. Bands not yet started are extrapolated in sequence from that predicted finish time, using the global mean rate across all completed contacts.
+Given a log of completed activity entries with timestamps, the app plots cumulative completion counts across four bands (17m, 15m, 12m, 10m) as step curves over time. For any band session still in progress, it projects a dashed trend line forward using the mean inter-arrival rate of completed entries. Bands not yet started are extrapolated in sequence from that predicted finish time, using the global mean rate across all completed entries.
 
 ## Repository layout
 
