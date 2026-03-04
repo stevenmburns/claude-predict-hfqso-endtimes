@@ -90,11 +90,13 @@ export default function App() {
             />
           ))}
           {predBands.map((band) => (
-            <Line
+            <Area
               key={`${band}_pred`}
               type="linear"
               dataKey={`${band}_pred`}
               stroke={COLORS[band]}
+              fill={COLORS[band]}
+              fillOpacity={0.07}
               strokeWidth={2}
               strokeDasharray="6 4"
               dot={false}
