@@ -12,7 +12,7 @@ import {
   ReferenceDot,
 } from "recharts";
 import { BANDS, buildChartData, build30MinTicks, formatTime } from "./chartLogic";
-import type { ChartResult, DataRecord, BandLabel } from "./chartLogic";
+import type { DataRecord, BandLabel } from "./chartLogic";
 
 const COLORS: Record<string, string> = {
   "17m": "#4e79a7",
