@@ -12,7 +12,7 @@ import {
   ReferenceDot,
 } from "recharts";
 import { BANDS, buildChartData, build30MinTicks, formatTime } from "./chartLogic";
-import type { DataRecord, BandLabel } from "./chartLogic";
+import type { DataRecord } from "./chartLogic";
 
 const COLORS: Record<string, string> = {
   "17m": "#4e79a7",
@@ -129,7 +129,7 @@ export default function App() {
               connectNulls={true}
             />
           ))}
-          {bandLabels.map((lbl: BandLabel) => (
+          {bandLabels.map((lbl) => (
             <ReferenceDot
               key={`label-${lbl.band}`}
               x={lbl.time}

@@ -94,19 +94,9 @@ export function buildChartData(records: DataRecord[]): ChartResult {
     predBands.push(band);
     const predKey = `${band}_pred`;
 
-    let predStart: number;
-    let meanInterval: number;
-
-    if (done >= MIN_BAND_SAMPLES) {
-      meanInterval = medianInterval(bandTimes);
-      predStart = Math.max(bandTimes[bandTimes.length - 1], chainTime, latestTime);
-    } else if (done >= 1) {
-      meanInterval = globalMedianInterval;
-      predStart = Math.max(bandTimes[bandTimes.length - 1], chainTime, latestTime);
-    } else {
-      meanInterval = globalMedianInterval;
-      predStart = Math.max(chainTime, latestTime);
-    }
+    const meanInterval = done >= MIN_BAND_SAMPLES ? medianInterval(bandTimes) : globalMedianInterval;
+    const lastBandTime = done > 0 ? bandTimes[bandTimes.length - 1] : -Infinity;
+    const predStart = Math.max(lastBandTime, chainTime, latestTime);
 
     const predEnd = predStart + pending * meanInterval;
     chainTime = predEnd;
