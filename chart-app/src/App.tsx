@@ -12,7 +12,7 @@ import {
   ReferenceDot,
 } from "recharts";
 import { BANDS, buildChartData, build30MinTicks, formatTime } from "./chartLogic";
-import type { ChartResult, DataRecord, BandLabel } from "./chartLogic";
+import type { DataRecord, BandLabel } from "./chartLogic";
 
 const COLORS: Record<string, string> = {
   "17m": "#4e79a7",
@@ -53,14 +53,26 @@ function BandLabelDot({ cx, cy, color, text }: { cx: number; cy: number; color: 
   );
 }
 
+const DATA_SOURCES: Record<string, string> = {
+  "Standard mock": "/mock_data.json",
+  "Mixed 1 (early completions)": "/mixed_data.json",
+  "Mixed 2 (mid-session, 10m not started)": "/mixed_data2.json",
+  "Mixed 3 (very early, 17m just started)": "/mixed_data3.json",
+  "Mixed 4 (all bands active)": "/mixed_data4.json",
+  "Mixed 5 (late session, only 10m remains)": "/mixed_data5.json",
+  "Mixed 6 (15m just hit rate threshold)": "/mixed_data6.json",
+};
+
 export default function App() {
-  const [chartResult, setChartResult] = useState<ChartResult>({ data: [], predBands: [], bandLabels: [] });
+  const [records, setRecords] = useState<DataRecord[]>([]);
+  const [source, setSource] = useState(Object.keys(DATA_SOURCES)[0]);
+  const chartResult = buildChartData(records);
 
   useEffect(() => {
-    fetch("/mock_data.json")
+    fetch(DATA_SOURCES[source])
       .then((r) => r.json())
-      .then((records: DataRecord[]) => setChartResult(buildChartData(records)));
-  }, []);
+      .then((data: DataRecord[]) => setRecords(data));
+  }, [source]);
 
   const { data, predBands, bandLabels } = chartResult;
   const ticks = build30MinTicks(data);
@@ -68,6 +80,11 @@ export default function App() {
   return (
     <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h2>Cumulative Completions by Band</h2>
+      <div style={{ marginBottom: "0.75rem" }}>
+        <select value={source} onChange={(e) => setSource(e.target.value)}>
+          {Object.keys(DATA_SOURCES).map((k) => <option key={k} value={k}>{k}</option>)}
+        </select>
+      </div>
       <ResponsiveContainer width="100%" height={450}>
         <ComposedChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 10 }}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -109,6 +126,7 @@ export default function App() {
               strokeDasharray="6 4"
               dot={false}
               isAnimationActive={false}
+              connectNulls={true}
             />
           ))}
           {bandLabels.map((lbl: BandLabel) => (

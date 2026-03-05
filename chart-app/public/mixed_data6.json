@@ -1,0 +1,807 @@
+[
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:31:20.351743+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:32:45.258795+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:34:12.626711+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:35:29.260717+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:36:53.518436+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:38:16.785954+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:39:39.368083+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:40:53.130676+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:42:05.561664+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:43:23.708402+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:44:47.650725+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:46:03.688865+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:47:23.714508+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:48:40.793469+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:50:06.334714+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:51:33.457817+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:52:51.883272+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:54:19.858424+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:55:32.853509+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:56:57.855253+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:58:23.860317+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T17:59:38.274965+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:01:01.564063+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:02:22.506333+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:03:49.789339+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:05:05.149499+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:06:25.788913+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:07:51.908211+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:09:14.128582+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:10:31.075774+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:11:44.385596+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:13:11.422013+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:14:31.007589+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:15:58.948808+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:17:13.214522+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:18:38.209790+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:20:03.223840+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:21:29.943440+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:22:42.228789+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:24:00.183874+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:25:13.010578+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:26:37.043135+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:27:54.717403+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:29:22.069487+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:30:40.066751+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:32:04.456750+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:33:30.341369+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:34:46.164514+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:36:07.073580+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:37:34.391855+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:38:54.822539+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:40:12.577864+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:41:28.853070+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:42:53.436585+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:44:08.520545+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:45:30.182888+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:46:51.071631+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:48:11.927324+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:49:25.999099+00:00"
+  },
+  {
+    "Band": "17m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:50:48.536141+00:00"
+  },
+  {
+    "Band": "15m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:52:27.200609+00:00"
+  },
+  {
+    "Band": "15m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:53:56.302673+00:00"
+  },
+  {
+    "Band": "15m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:55:25.615844+00:00"
+  },
+  {
+    "Band": "15m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:57:04.160496+00:00"
+  },
+  {
+    "Band": "15m",
+    "Completed": true,
+    "Completed_Timestamp": "2026-03-04T18:58:37.414019+00:00"
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "15m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "12m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  },
+  {
+    "Band": "10m",
+    "Completed": false
+  }
+]
