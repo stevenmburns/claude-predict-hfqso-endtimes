@@ -24,18 +24,41 @@ export interface ChartResult {
 
 export const BANDS = ["17m", "15m", "12m", "10m"];
 
+// Median inter-arrival interval — robust to outlier gaps from early scattered completions
+function medianInterval(times: number[]): number {
+  const intervals = times.slice(1).map((t, i) => t - times[i]).sort((a, b) => a - b);
+  const mid = Math.floor(intervals.length / 2);
+  return intervals.length % 2 === 1
+    ? intervals[mid]
+    : (intervals[mid - 1] + intervals[mid]) / 2;
+}
+
 export function buildChartData(records: DataRecord[]): ChartResult {
-  const completed = records.filter((r) => r.Completed);
+  const completed = records
+    .filter((r) => r.Completed)
+    .sort((a, b) => new Date(a.Completed_Timestamp!).getTime() - new Date(b.Completed_Timestamp!).getTime());
   const completedCounts = Object.fromEntries(BANDS.map((b) => [b, completed.filter((r) => r.Band === b).length]));
   const totalCounts = Object.fromEntries(BANDS.map((b) => [b, records.filter((r) => r.Band === b).length]));
 
-  const offsets: Record<string, number> = Object.fromEntries(BANDS.map((b) => [b, 0]));
+  // Offsets are based on total records per preceding band (fixed slots on y-axis)
+  const offsets: Record<string, number> = {};
   let running = 0;
   for (const band of BANDS) {
     offsets[band] = running;
-    running += completedCounts[band];
+    running += totalCounts[band];
   }
 
+  // Global median inter-arrival interval across all completed QSOs; fallback 1/min
+  const allTimes = completed.map((r) => new Date(r.Completed_Timestamp!).getTime());
+  const globalMedianInterval = allTimes.length >= 2 ? medianInterval(allTimes) : 60_000;
+
+  // Minimum completions required to trust a band's own rate; below this, use global median
+  const MIN_BAND_SAMPLES = 5;
+
+  // Latest known timestamp — anchor for zero-completion band predictions
+  const latestTime = allTimes.length > 0 ? allTimes[allTimes.length - 1] : 0;
+
+  // Actual data points
   const counts: Record<string, number> = Object.fromEntries(BANDS.map((b) => [b, 0]));
   const data: ChartPoint[] = completed.map((r) => {
     counts[r.Band] += 1;
@@ -43,70 +66,54 @@ export function buildChartData(records: DataRecord[]): ChartResult {
     return { time: new Date(r.Completed_Timestamp!).getTime(), ...snapshot };
   });
 
-  const allTimes = completed.map((r) => new Date(r.Completed_Timestamp!).getTime()).sort((a, b) => a - b);
-  const globalIntervals = allTimes.slice(1).map((t, i) => t - allTimes[i]);
-  const globalMeanInterval = globalIntervals.length > 0
-    ? globalIntervals.reduce((a, b) => a + b, 0) / globalIntervals.length
-    : 60_000;
-
   const predBands: string[] = [];
   const bandLabels: BandLabel[] = [];
-  let chainTime: number | null = null;
-  let chainCount: number | null = null;
+  const nullSnapshot = Object.fromEntries(BANDS.map((b) => [b, null]));
+
+  // chainTime tracks the predicted end of the last processed band, used in sequential mode
+  let chainTime = latestTime;
 
   for (const band of BANDS) {
-    const pendingCount = totalCounts[band] - completedCounts[band];
-    if (pendingCount === 0) continue;
+    const total = totalCounts[band];
+    const done = completedCounts[band];
+    const pending = total - done;
 
-    const predKey = `${band}_pred`;
-    const nullSnapshot = Object.fromEntries(BANDS.map((b) => [b, null]));
+    if (total === 0) continue;
+
+    const bandTimes = completed
+      .filter((r) => r.Band === band)
+      .map((r) => new Date(r.Completed_Timestamp!).getTime());
+
+    if (pending === 0) {
+      // Fully completed — label only
+      chainTime = Math.max(bandTimes[bandTimes.length - 1], chainTime);
+      bandLabels.push({ band, time: bandTimes[bandTimes.length - 1], value: offsets[band] + total, text: `${total}/${total}` });
+      continue;
+    }
+
     predBands.push(band);
+    const predKey = `${band}_pred`;
 
-    if (completedCounts[band] > 0) {
-      const bandTimes = completed
-        .filter((r) => r.Band === band)
-        .map((r) => new Date(r.Completed_Timestamp!).getTime());
-      const intervals = bandTimes.slice(1).map((t, i) => t - bandTimes[i]);
-      const meanInterval = intervals.length > 0
-        ? intervals.reduce((a, b) => a + b, 0) / intervals.length
-        : globalMeanInterval;
+    let predStart: number;
+    let meanInterval: number;
 
-      const lastTime = bandTimes[bandTimes.length - 1];
-      const lastCount = offsets[band] + completedCounts[band];
-
-      data.push({ time: lastTime, ...nullSnapshot, [predKey]: lastCount });
-      for (let i = 1; i <= pendingCount; i++) {
-        data.push({ time: lastTime + meanInterval * i, ...nullSnapshot, [predKey]: lastCount + i });
-      }
-
-      chainTime = lastTime + meanInterval * pendingCount;
-      chainCount = lastCount + pendingCount;
-      bandLabels.push({ band, time: chainTime, value: chainCount, text: `${completedCounts[band]}/${totalCounts[band]}` });
+    if (done >= MIN_BAND_SAMPLES) {
+      meanInterval = medianInterval(bandTimes);
+      predStart = Math.max(bandTimes[bandTimes.length - 1], chainTime, latestTime);
+    } else if (done >= 1) {
+      meanInterval = globalMedianInterval;
+      predStart = Math.max(bandTimes[bandTimes.length - 1], chainTime, latestTime);
     } else {
-      const startTime: number = chainTime!;
-      const startCount: number = chainCount!;
-
-      data.push({ time: startTime, ...nullSnapshot, [predKey]: startCount });
-      for (let i = 1; i <= pendingCount; i++) {
-        data.push({ time: startTime + globalMeanInterval * i, ...nullSnapshot, [predKey]: startCount + i });
-      }
-
-      chainTime = startTime + globalMeanInterval * pendingCount;
-      chainCount = startCount + pendingCount;
-      bandLabels.push({ band, time: chainTime, value: chainCount, text: `${completedCounts[band]}/${totalCounts[band]}` });
+      meanInterval = globalMedianInterval;
+      predStart = Math.max(chainTime, latestTime);
     }
-  }
 
-  // Labels for fully-completed bands (no prediction line)
-  for (const band of BANDS) {
-    if (totalCounts[band] > 0 && completedCounts[band] === totalCounts[band]) {
-      const bandTimes = completed
-        .filter((r) => r.Band === band)
-        .map((r) => new Date(r.Completed_Timestamp!).getTime());
-      const lastTime = bandTimes[bandTimes.length - 1];
-      const lastValue = offsets[band] + completedCounts[band];
-      bandLabels.push({ band, time: lastTime, value: lastValue, text: `${completedCounts[band]}/${totalCounts[band]}` });
-    }
+    const predEnd = predStart + pending * meanInterval;
+    chainTime = predEnd;
+
+    data.push({ time: predStart, ...nullSnapshot, [predKey]: offsets[band] + done });
+    data.push({ time: predEnd, ...nullSnapshot, [predKey]: offsets[band] + total });
+    bandLabels.push({ band, time: predEnd, value: offsets[band] + total, text: `${done}/${total}` });
   }
 
   data.sort((a, b) => a.time - b.time);
